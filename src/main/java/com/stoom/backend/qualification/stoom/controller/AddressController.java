@@ -70,6 +70,10 @@ public class AddressController {
     @PutMapping("/address")
     public ResponseEntity<Address> updateAddress(@RequestBody final Address address) {
         ResponseEntity<Address> responseEntity = null;
+        if (address != null && (address.getLatitude() == null || address.getLatitude().isNaN())
+                    || (address.getLongitude() == null || address.getLongitude().isNaN())) {
+                geolocationService.getGeolocation(address);
+            }
         final Address savedAddress = addressService.updateAddress(address);
         if (savedAddress != null) {
             responseEntity = ResponseEntity.ok(savedAddress);

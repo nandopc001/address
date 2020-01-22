@@ -1,5 +1,5 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} stoom-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","/stoom-0.0.1-SNAPSHOT.jar"]
+# Base Alpine Linux based image with OpenJDK JRE only
+FROM openjdk:8-jre-alpine
+COPY target/stoom-*.jar /app.jar
+CMD ["/usr/bin/java", "-jar", "-Dspring.profiles.active=test", "/app.jar"]
+EXPOSE 8080

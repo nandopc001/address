@@ -11,8 +11,8 @@
 	<groupId>com.stoom.backend.qualification</groupId>
 	<artifactId>stoom</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>stoom</name>
+	<description>CRUD STOOM</description>
 
 	<properties>
 		<java.version>1.8</java.version>
